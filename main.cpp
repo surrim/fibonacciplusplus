@@ -1,5 +1,6 @@
 #include <array>
 #include <iostream>
+#include <print>
 
 using max_uint_t = __uint128_t;
 using array_2x2_t = std::array<std::array<max_uint_t, 2>, 2>;
@@ -48,11 +49,11 @@ constexpr max_uint_t fibonacci(int n) {
 
 int main(int argc, char *argv[]) {
 	if (argc != 2) {
-		std::cerr << "Usage: fibonacci++ N" << std::endl
-				<< "   Calculate a fibonacci number, using " << 8 * sizeof(max_uint_t) << " bit integers" << std::endl;
+        std::println(std::cerr, "Usage: fibonacci++ N");
+        std::println(std::cerr, "   Calculate a fibonacci number, using {} bit integers", 8 * sizeof(max_uint_t));
 		return 1;
 	}
 	auto n = std::atoi(argv[1]);
-	std::cout << n << '\t' << fibonacci(n) << std::endl;
+	std::println("{}\t{}", n, fibonacci(n));
 	return 0;
 }
