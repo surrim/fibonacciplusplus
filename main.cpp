@@ -8,9 +8,10 @@ int main(int argc, char *argv[]) {
         std::println(std::cerr, "   Calculate a fibonacci number, using big integers");
 		return 1;
 	}
+
 	auto n = std::atoi(argv[1]);
-	auto f = mpz_class();
-	mpz_fib_ui(f.get_mpz_t(), n);
-	std::println("{}\t{}", n, f.get_str());
+	auto result = mpz_class();
+	mpz_fib_ui(result.get_mpz_t(), n);
+	std::println("{}\t{}", n, result.get_str());
 	return 0;
 }
